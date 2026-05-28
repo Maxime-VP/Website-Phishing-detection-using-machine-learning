@@ -19,20 +19,20 @@ Tiene una distribución de:
 
 Las columnas de features son las siguientes: (Variable-Descripción)
 
-SFH - Server Form Handler (describe el comportamientod de formularios en la página web)
+- SFH - Server Form Handler (describe el comportamientod de formularios en la página web)
 
-popUpWindow - Presencia de ventanas emergentes
+- popUpWindow - Presencia de ventanas emergentes
 
-SSLfinal_State - Estado del certificado SSL (Existencia y validez de certificados https)
+- SSLfinal_State - Estado del certificado SSL (Existencia y validez de certificados https)
 
-Request_URL - URLs externas solicitadas
+- Request_URL - URLs externas solicitadas
 
-URL_of_Anchor - Comportamiento de enlaces anchor
+- URL_of_Anchor - Comportamiento de enlaces anchor
 
-web_traffic - Popularidad/tráfico del sitio
+- web_traffic - Popularidad/tráfico del sitio
 
-URL_Length - Longitud de la URL
+- URL_Length - Longitud de la URL
 
-age_of_domain - Antigüedad del dominio
+- age_of_domain - Antigüedad del dominio
 
-having_IP_Address - Uso de dirección IP en la URL
+- having_IP_Address - Uso de dirección IP en la URL
