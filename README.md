@@ -10,11 +10,11 @@ La columna target puede tener 3 valores -1 (phishing), 0 (sospechoso) y 1 (sitio
 
 Tiene una distribución de:
 
-702 sitios phishing
+- 702 sitios phishing
 
-548 sitios legítimos
+- 548 sitios legítimos
 
-103 sitios sospechosos
+- 103 sitios sospechosos
 
 
 Las columnas de features son las siguientes: (Variable-Descripción)
