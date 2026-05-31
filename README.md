@@ -1,4 +1,4 @@
-#Si este comentario lo estás viendo antes del 31 de mayo a las 11:59pm, todavía no está completo el trabajo, por favor aún no lo revises. Subí el enlace para evitar problemas con Canvas, pero me falta separar en limpieza entrenamiento y pruebas; y explicar el paper que utilicé al igual que los modelos y sus hiperparámetros.
+# Si este comentario lo estás viendo antes del 31 de mayo a las 11:59pm, todavía no está completo el trabajo, por favor aún no lo revises. Subí el enlace para evitar problemas con Canvas, pero me falta separar en limpieza entrenamiento y pruebas; y explicar el paper que utilicé al igual que los modelos y sus hiperparámetros. Si el comentario está y ya no es la fecha, entonces todo el código se encuentra en el .ipynb dentro de la carpeta "Codigo Monolítico"
 
 
 # Website-Phishing-detection-using-machine-learning
