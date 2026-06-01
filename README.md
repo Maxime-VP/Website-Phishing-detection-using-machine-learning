@@ -73,7 +73,7 @@ El experimento fue realizado con un dataset público de 58,000 ejemplos de sitio
 
 El paper menciona al XGBoost como el mejor modelo para resolver el problema ya que alcanza hasta un 99% de accuracy, precision, recall y specificity. Además, su runtime es bastante rápido. 
 
-Para los modelos que voy a hacer quiero usar de métrica solamente a F1 score (y a accuracy como soporte). El motivo es que el F1 score es menos suceptible a datasets desbalanceados y la clasificación intermedia de sitio sospechoso aparece mucho menos que las otras dos clases. Además, como hay 3 clasificaciones posibles en lugar de 2, prefiero utilizar una métrica que combina las métricas de precision y recall en lugar de calcularlas individualmente para cada clase.
+Para los modelos que voy a hacer quiero usar de métrica principalmente a F1 score (y a accuracy y el resto de métricas como soporte). El motivo es que el F1 score es menos suceptible a datasets desbalanceados y la clasificación intermedia de sitio sospechoso aparece mucho menos que las otras dos clases. Además, como hay 3 clasificaciones posibles en lugar de 2, prefiero utilizar una métrica que combina las métricas de precision y recall en lugar de analizarlas individualmente para cada clase (aunque sí serán calculadas).
 
 Accuracy lo quiero para contrastarlo con el F1, si ambos son muy similares, es una buena señal de que el modelo funciona bien para clasificar las 3 posibles clasificaciones. Si al cotrario el accuracy y el f1 son muy diferentes, significa que probablemente el modelo no esté detectando bien una de las clases (probablemente por desbalance).
 
