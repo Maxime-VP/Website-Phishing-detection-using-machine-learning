@@ -1,4 +1,7 @@
-# Si este comentario lo estás viendo antes del 31 de mayo a las 11:59pm, todavía no está completo el trabajo, por favor aún no lo revises. Subí el enlace para evitar problemas con Canvas, pero me falta separar en limpieza entrenamiento y pruebas; y explicar el paper que utilicé al igual que los modelos y sus hiperparámetros. Si el comentario está y ya no es la fecha, entonces todo el código se encuentra en el .ipynb dentro de la carpeta "Codigo Monolítico"
+El código está separado por secciones. Actualmente solo están listas las secciones de lipieza y entrenamiento. En la sección de entrenamiento se prueba el desempeño de los modelos. En la carpeta de pruebas, se reserva para más adelante probar los modelos con instancias generadas por un usuario con una interfaz (por hacer).
+
+Para la revisión más cómoda del modelo también dejo una carpeta de código monolítico en la que el programa corre en un solo .ipynb. Si se quiere ver la limpieza y el entrenamiento por separado se puede hacer también, para el entrenamiento es necesario cargar el excel que se encuentra en la carpeta correspondiente.
+
 
 
 # Website-Phishing-detection-using-machine-learning
