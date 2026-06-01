@@ -52,6 +52,8 @@ Para este proyecto estoy haciendo dos splits de 80% y 20% cuidando que cada clas
 
 En el caso de sitios sospechosos la cantidad de ejemplos no es tanta por lo que se espera que el modelo tenga más trabajo para distinguirla de las demás clases.
 
+# Paper:
+
 Para este proyecto me estoy basando en el paper "A high-accuracy phishing website detection method based on machine learning":
 
 [1] M. Bahaghighat, M. Ghasemi y F. Ozen,
@@ -77,4 +79,6 @@ Accuracy lo quiero para contrastarlo con el F1, si ambos son muy similares, es u
 
 En el paper se utilizan 8 escenarios distintos que no son más que diferentes combinaciones de aplicar balanceo, eliminar constantes y PCA (Principal Component Analysis es cuando dos atributos son muy parecidos se combinan en una sola variable). El escenario 1 es donde no aplican ninguna de las 3 herramientas y el escenario 4 (el que obtuvo mejores resultados) es cuando usaron balanceo y eliminación de constantes pero no PCA. En el contexto de mi dataset eliminar constantes y PCA no tienen mucho sentido, pero balancear mejor el dataset sí puede servir para mejorar el desempeño del modelo.
 
-La técnica de balanceo que emplean es oversampling con SMOTEENN, (la misma que empleamos en MATCHAI). Esta lo que hace es generar nuevas instancias artificiales de la clase desbalanceada con menos ejemplos (SMOTE) y (ENN [Edited Nearest Neighbors]) elimina observaciones ruidosas o ambiguas.
+La técnica de balanceo que emplean es oversampling con SMOTEENN, (la misma que empleamos en MATCHAI). Esta lo que hace es generar nuevas instancias artificiales de la clase desbalanceada con menos ejemplos (SMOTE) y (ENN [Edited Nearest Neighbors]) elimina observaciones ruidosas o ambiguas. 
+
+Por el momento solo tengo los 3 modelos base (escenario 0). Una de las posibles mejoras que no sean el ajuste de hiperparámetros es aplicar esta técnica de balanceo.
