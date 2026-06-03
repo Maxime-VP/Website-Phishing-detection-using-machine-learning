@@ -1,8 +1,6 @@
-El código está separado por secciones. En la sección de entrenamiento se prueba el desempeño de los modelos. En la carpeta de pruebas, se reserva para más adelante probar los modelos con instancias generadas por un usuario con una interfaz.
+<img width="1011" height="639" alt="image" src="https://github.com/user-attachments/assets/3961f0b0-622c-4f73-ae97-932b58f102b0" />El código está separado por secciones. En la sección de entrenamiento se prueba el desempeño de los modelos. En la carpeta de pruebas, se reserva para más adelante probar los modelos con instancias generadas por un usuario con una interfaz.
 
-Para la revisión más cómoda del modelo también dejo una carpeta de código monolítico en la que el programa corre en un solo .ipynb. Si se quiere ver la limpieza y el entrenamiento por separado se puede hacer también, para el entrenamiento es necesario cargar el excel que se encuentra en la carpeta correspondiente; para las pruebas, se deben cargar todos los documentos adjuntos en la carpeta de pruebas.
-
-
+Para la revisión más cómoda del modelo también dejo una carpeta de código monolítico en la que el programa corre en un solo .ipynb, este código no incluye las mejoras aplicadas. Si se quiere ver la limpieza y el entrenamiento por separado se puede hacer también, para el entrenamiento es necesario cargar el excel que se encuentra en la carpeta correspondiente; para las pruebas, se deben cargar todos los documentos adjuntos en la carpeta de pruebas.
 
 # Website-Phishing-detection-using-machine-learning
 
@@ -57,16 +55,7 @@ En el caso de sitios sospechosos la cantidad de ejemplos no es tanta por lo que 
 
 # Paper:
 
-Para este proyecto me estoy basando en el paper "A high-accuracy phishing website detection method based on machine learning":
-
-[1] M. Bahaghighat, M. Ghasemi y F. Ozen,
-“A high-accuracy phishing website detection method based on machine learning,”
-Journal of Information Security and Applications,
-vol. 77,
-art. 103553,
-2023.
-doi: 10.1016/j.jisa.2023.103553.
-Available: https://www.sciencedirect.com/science/article/pii/S2214212623001370
+Para este proyecto me estoy basando en el paper "A high-accuracy phishing website detection method based on machine learning": [1]
 
 Este paper probó varios modelos para resolver el mismo problema utilizando parámetros distintos: Los modelos que se tratan son  Logistic Regression, K-Nearest Neighbors, Naive Bayes, Random Forest, Support Vector Machine, y Extreme Gradient Boosting (XGBoost). 
 
@@ -85,3 +74,75 @@ En el paper se utilizan 8 escenarios distintos que no son más que diferentes co
 La técnica de balanceo que emplean es oversampling con SMOTEENN, (la misma que empleamos en MATCHAI). Esta lo que hace es generar nuevas instancias artificiales de la clase desbalanceada con menos ejemplos (SMOTE) y (ENN [Edited Nearest Neighbors]) elimina observaciones ruidosas o ambiguas. 
 
 Por el momento solo tengo los 3 modelos base (escenario 0). Una de las posibles mejoras que no sean el ajuste de hiperparámetros es aplicar esta técnica de balanceo.
+
+## Modelos:
+
+Para este problema estoy trabajando con 3 modelos distintos, regresión logística, random forest y xgboost. Como mencioné anteriormente se espera que el primer modelo tenga un desempeño moderadamente bueno y lo quiero más que nada como un benchmark. Los otros dos modelos fueron los que mejor desempeño tuvieron alcanzando en el problema resuelto en el paper con un F1 ligeramente arriva de 95 antes de ajustar los hiperparámetros.
+
+Después de obtener un baselina apliqué dos mejoras, la primera fué una mejora en los hiperparámetros enfocadas en reducir el overfitting. En esta se consiguió mejorar ligeramente los resultados, pero es algo tan mínimo que podría ser algo espurio. En la segunda mejora apliqué SMOTEEEN para generar más ejemplos de la clase sospechosa la cuál hace que el dataset esté desbalanceado. Esta segunda mejora permite que la clase sospechosa sea más fácil de detectar correctamente. Sin embargo, esto causa que al modelo le cueste un poco más de trabajo detectar las otras dos clases. En el contexto de phishing es probable que sea mejor quedarse con el modelo sin smoteen, o mejor aún evaluar con ambos modelos antes de tomar una decisión, de esta forma puedes evaluar si un sitio sospechoso para el modelo con smote es peligroso, seguro o también sospechoso para el modelo sin smote.
+
+### Regresión logística
+El modelo analiza las características de entrada y calcula una combinación lineal de ellas. Posteriormente, aplica una función sigmoide para transformar el resultado en una probabilidad. 
+
+Hiperparámetros (default) del primer modelo:
+{'alpha': 0.0001,
+ 'average': False,
+ 'class_weight': None,
+ 'early_stopping': False,
+ 'epsilon': 0.1,
+ 'eta0': 0.0,
+ 'fit_intercept': True,
+ 'l1_ratio': 0.15,
+ 'learning_rate': 'optimal',
+ 'loss': 'hinge',
+ 'max_iter': 1000,
+ 'n_iter_no_change': 5,
+ 'n_jobs': None,
+ 'penalty': 'l2',
+ 'power_t': 0.5,
+ 'random_state': None,
+ 'shuffle': True,
+ 'tol': 0.001,
+ 'validation_fraction': 0.1,
+ 'verbose': 0,
+ 'warm_start': False}
+
+Hiperparámetros del primer modelo mejorado y del modelo con SMOTEEN: Son los mismos que el default con 
+penalty='l2' - Reduce pesos muy grandes
+alpha=0.0005 - Que tan severo es el penalty
+eta0=0.0005 - learning rate
+
+Resultados:
+
+Entrenamiento:
+<img width="1011" height="639" alt="image" src="https://github.com/user-attachments/assets/bae84253-ed43-45be-8d6e-e62c990a7ca6" />
+<img width="1144" height="674" alt="image" src="https://github.com/user-attachments/assets/3dff1bd7-363f-4c17-a6de-f219650071aa" />
+<img width="886" height="563" alt="image" src="https://github.com/user-attachments/assets/3ff10113-e1eb-4587-b54d-32c85e14572a" />
+
+Matriz de confusión:
+<img width="598" height="537" alt="image" src="https://github.com/user-attachments/assets/e8672bde-ac6b-4a61-94e8-7964dc92f0ec" />
+<img width="650" height="567" alt="image" src="https://github.com/user-attachments/assets/d92831a5-e042-40b9-927b-1d1824dbbb2b" />
+<img width="532" height="476" alt="image" src="https://github.com/user-attachments/assets/aeab04c9-9e89-4f68-b4ec-525a738a5477" />
+
+Métricas
+<img width="531" height="204" alt="image" src="https://github.com/user-attachments/assets/3c3fd9c9-a755-46d1-8f2a-e709af83293e" />
+<img width="490" height="197" alt="image" src="https://github.com/user-attachments/assets/bdd5f123-4503-47f3-8b11-fdd31114b8a4" />
+<img width="463" height="174" alt="image" src="https://github.com/user-attachments/assets/6a5fde21-808c-4cdb-aa56-254f89627a39" />
+
+
+
+
+
+
+
+
+
+## Referencia 
+[1] M. Bahaghighat, M. Ghasemi y F. Ozen,
+“A high-accuracy phishing website detection method based on machine learning,”
+Journal of Information Security and Applications,
+vol. 77,
+art. 103553,
+2023.
+doi: 10.1016/j.jisa.2023.103553.
+Available: https://www.sciencedirect.com/science/article/pii/S2214212623001370
