@@ -132,10 +132,22 @@ Métricas
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/bdd5f123-4503-47f3-8b11-fdd31114b8a4" />
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/6a5fde21-808c-4cdb-aa56-254f89627a39" />
 
+### Random forest
+Random Forest es un algoritmo de clasificación y regresión basado en un conjunto de árboles de decisión. En lugar de construir un único árbol, genera múltiples árboles independientes y combina sus resultados para obtener una predicción más robusta.
 
+Cada árbol se entrena con una muestra aleatoria de datos y cuando se predice lo que pasa es una votación. Cada árbol vota por una clase y la clase por la que la mayoría vota es la clase elegida.
 
+Para este modelo los hiperparámetros que estoy empleando son:
+n_estimators=n,
+max_depth=None,
+min_samples_leaf=1
 
+Para las dos mejoras:
+n_estimators=n,
+max_depth=10,
+min_samples_leaf=2
 
+n_estimators es el número de árboles creados, en las tres versiones de este modelo lo que estoy haciendo es entrenar muchos modelos cada uno con diferentes números de árboles. Los resultados mostrados son los de el último modelo generado (el que tiene más árboles), sin embargo las graficas muestran que a partir de 100 el modelo se vuelve estable y tiene un buen desempeño entonces no tiene gran impacto (lo ideal sería guardar la versión con mejor desempeño en validation).
 
 
 
