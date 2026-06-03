@@ -1,4 +1,4 @@
-<img width="1011" height="639" alt="image" src="https://github.com/user-attachments/assets/3961f0b0-622c-4f73-ae97-932b58f102b0" />El código está separado por secciones. En la sección de entrenamiento se prueba el desempeño de los modelos. En la carpeta de pruebas, se reserva para más adelante probar los modelos con instancias generadas por un usuario con una interfaz.
+El código está separado por secciones. En la sección de entrenamiento se prueba el desempeño de los modelos. En la carpeta de pruebas, se reserva para más adelante probar los modelos con instancias generadas por un usuario con una interfaz.
 
 Para la revisión más cómoda del modelo también dejo una carpeta de código monolítico en la que el programa corre en un solo .ipynb, este código no incluye las mejoras aplicadas. Si se quiere ver la limpieza y el entrenamiento por separado se puede hacer también, para el entrenamiento es necesario cargar el excel que se encuentra en la carpeta correspondiente; para las pruebas, se deben cargar todos los documentos adjuntos en la carpeta de pruebas.
 
@@ -115,19 +115,22 @@ eta0=0.0005 - learning rate
 Resultados:
 
 Entrenamiento:
-<img width="1011" height="639" alt="image" src="https://github.com/user-attachments/assets/bae84253-ed43-45be-8d6e-e62c990a7ca6" />
-<img width="1144" height="674" alt="image" src="https://github.com/user-attachments/assets/3dff1bd7-363f-4c17-a6de-f219650071aa" />
-<img width="886" height="563" alt="image" src="https://github.com/user-attachments/assets/3ff10113-e1eb-4587-b54d-32c85e14572a" />
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/bae84253-ed43-45be-8d6e-e62c990a7ca6" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/3dff1bd7-363f-4c17-a6de-f219650071aa" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/3ff10113-e1eb-4587-b54d-32c85e14572a" />
 
 Matriz de confusión:
-<img width="598" height="537" alt="image" src="https://github.com/user-attachments/assets/e8672bde-ac6b-4a61-94e8-7964dc92f0ec" />
-<img width="650" height="567" alt="image" src="https://github.com/user-attachments/assets/d92831a5-e042-40b9-927b-1d1824dbbb2b" />
-<img width="532" height="476" alt="image" src="https://github.com/user-attachments/assets/aeab04c9-9e89-4f68-b4ec-525a738a5477" />
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/e8672bde-ac6b-4a61-94e8-7964dc92f0ec" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/d92831a5-e042-40b9-927b-1d1824dbbb2b" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/aeab04c9-9e89-4f68-b4ec-525a738a5477" />
 
 Métricas
-<img width="531" height="204" alt="image" src="https://github.com/user-attachments/assets/3c3fd9c9-a755-46d1-8f2a-e709af83293e" />
-<img width="490" height="197" alt="image" src="https://github.com/user-attachments/assets/bdd5f123-4503-47f3-8b11-fdd31114b8a4" />
-<img width="463" height="174" alt="image" src="https://github.com/user-attachments/assets/6a5fde21-808c-4cdb-aa56-254f89627a39" />
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/3c3fd9c9-a755-46d1-8f2a-e709af83293e" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/bdd5f123-4503-47f3-8b11-fdd31114b8a4" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/6a5fde21-808c-4cdb-aa56-254f89627a39" />
 
 
 
