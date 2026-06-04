@@ -118,18 +118,21 @@ Entrenamiento:
 
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/bae84253-ed43-45be-8d6e-e62c990a7ca6" />
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/3dff1bd7-363f-4c17-a6de-f219650071aa" />
+
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/3ff10113-e1eb-4587-b54d-32c85e14572a" />
 
 Matriz de confusión:
 
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/e8672bde-ac6b-4a61-94e8-7964dc92f0ec" />
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/d92831a5-e042-40b9-927b-1d1824dbbb2b" />
+
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/aeab04c9-9e89-4f68-b4ec-525a738a5477" />
 
 Métricas:
 
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/3c3fd9c9-a755-46d1-8f2a-e709af83293e" />
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/bdd5f123-4503-47f3-8b11-fdd31114b8a4" />
+
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/6a5fde21-808c-4cdb-aa56-254f89627a39" />
 
 ### Random forest
@@ -159,19 +162,66 @@ Entrenamiento:
 
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/62352092-decc-466a-9248-a6e08177013b" />
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/c0f794b2-0740-43b5-802f-5137ade4a86d" />
+
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/8ce6db92-b0dd-453c-b70e-673c9a5db25c" />
 
 Matriz de confusión:
 
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/fcbe11c6-e438-4bc7-a239-35b144c4d330" />
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/8f8462e1-3767-4d8b-88ce-bda66bf2ca70" />
+
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/8ac6ef30-8e0d-43f5-87b1-24dd6e2922b8" />
 
 Métricas:
 
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/9df811a4-046b-4be7-95d8-683b7c1f745d" />
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/7aab944e-c2a5-402b-928d-b8ffb1be56cc" />
+
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/ef69b566-153d-4314-a64b-b3f9420e29fb" />
+
+### Xgboost:
+XGBoost (Extreme Gradient Boosting) a diferencia del random forest donde los árboles se construyen de forma independiente, en XGBoost los árboles se crean secuencialmente.
+
+El proceso comienza con un árbol sencillo que realiza una primera predicción. Después, se analiza cuáles instancias fueron clasificadas incorrectamente y se construye un nuevo árbol especializado en corregir esos errores. Este procedimiento se repite múltiples veces, de modo que cada árbol nuevo intenta mejorar el desempeño del conjunto anterior.
+
+Hiperparámetros (default) del primer modelo:
+
+n_estimators=100
+learning_rate=0.05
+max_depth=6
+
+Hiperparámetros de ambas mejoras:
+
+n_estimators=150,
+learning_rate=0.03,
+max_depth=10,
+
+n_estimetors, son el número de árboles secuenciales
+learning_rate, controla cuánto contribuye cada árbol nuevo a la predicción final. No permite que un árbol corrija completamente los errores, alenta el aprendizaje pero reduce el sobreajuste (mientras más bajo, menor el sobreajuste).
+max_depth, similar al de random forest es cuantos niveles puede tener cada árbol. Si la profundidad es mayor puede entender mejor relaciones complejas (puede tender a overfitting).
+
+Resultados:
+
+Entrenamiento:
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/eed827da-ea33-4edd-a1f9-ebc6a830ed25" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/ebab3666-3455-42bc-9efc-a0022b4f2ee6" />
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/e2f42a35-ac73-4bab-9621-84e47f497a00" />
+
+Matriz de confusión:
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/6463b71b-e67b-49ae-ba4c-51bdc21b7a1b" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/dacc881d-1eba-4bd1-b244-9ca878de3d59" />
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/0c6e6c8f-ff7f-435f-8682-ed3017705afc" />
+
+Métricas:
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/ed7c17b0-58bb-463b-a3e0-b67b2b1b1552" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/aefcba14-48bb-4f14-b5c9-dfe4ece604e2" />
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/0d31d04d-b8fc-4dbd-aa0f-e3ff467ee176" />
 
 
 ## Referencia 
