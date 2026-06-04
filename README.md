@@ -108,7 +108,7 @@ Hiperparámetros (default) del primer modelo:
  'warm_start': False}
 
 Hiperparámetros del primer modelo mejorado y del modelo con SMOTEEN: Son los mismos que el default con 
-penalty='l2' - Reduce pesos muy grandes
+penalty='l2' - Reduce pesos muy grandes. 
 alpha=0.0005 - Que tan severo es el penalty
 eta0=0.0005 - learning rate
 
@@ -126,7 +126,7 @@ Matriz de confusión:
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/d92831a5-e042-40b9-927b-1d1824dbbb2b" />
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/aeab04c9-9e89-4f68-b4ec-525a738a5477" />
 
-Métricas
+Métricas:
 
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/3c3fd9c9-a755-46d1-8f2a-e709af83293e" />
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/bdd5f123-4503-47f3-8b11-fdd31114b8a4" />
@@ -149,7 +149,29 @@ min_samples_leaf=2
 
 n_estimators es el número de árboles creados, en las tres versiones de este modelo lo que estoy haciendo es entrenar muchos modelos cada uno con diferentes números de árboles. Los resultados mostrados son los de el último modelo generado (el que tiene más árboles), sin embargo las graficas muestran que a partir de 100 el modelo se vuelve estable y tiene un buen desempeño entonces no tiene gran impacto (lo ideal sería guardar la versión con mejor desempeño en validation).
 
+max_depth es qué tan profundos pueden crecer los árboles de decisión. Los árboles se construyen realizando divisiones de los datos. Un valor de 10 permite que cada árbol realice hasta 10 niveles de divisiones antes de detenerse. Un valor bajo puede crear un árbol demasiado simple que no aprende patrones importantes. Si es muy alto, el árbol puede volverse demasiado específico y sobreajustarse. Por ello en la mejora limitamos esta profundidad, el valor 10 fué el que mejor resultado obtuvo.
 
+min_samples_leaf indica el número mínimo de muestras que debe haber en una hoja final del árbol. Una hoja es el resultado final del árbol y representa la predicción que hará el árbol para los datos que lleguen a ella. Valores pequeños permiten árboles muy específicos que nuevamente pueden tender a sobreajustarse. Curiosamente el número de hojas que permitió una mejora fué 2. 
+
+Resultados:
+
+Entrenamiento:
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/62352092-decc-466a-9248-a6e08177013b" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/c0f794b2-0740-43b5-802f-5137ade4a86d" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/8ce6db92-b0dd-453c-b70e-673c9a5db25c" />
+
+Matriz de confusión:
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/fcbe11c6-e438-4bc7-a239-35b144c4d330" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/8f8462e1-3767-4d8b-88ce-bda66bf2ca70" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/8ac6ef30-8e0d-43f5-87b1-24dd6e2922b8" />
+
+Métricas:
+
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/9df811a4-046b-4be7-95d8-683b7c1f745d" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/7aab944e-c2a5-402b-928d-b8ffb1be56cc" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/ef69b566-153d-4314-a64b-b3f9420e29fb" />
 
 
 ## Referencia 
