@@ -1,6 +1,6 @@
-El código está separado por secciones. En la sección de entrenamiento se prueba el desempeño de los modelos. En la carpeta de pruebas, se reserva para más adelante probar los modelos con instancias generadas por un usuario con una interfaz.
+El código está separado por secciones. En la sección de limpieza, se limpia el dataset y se deja listo para hacer el split y el encode en la sección de entrenamiento. En la sección de entrenamiento se prueba el desempeño de los modelos, ahí se incluyen también .ipynb del entrenamiento con las mejoras. En la carpeta de pruebas, se reserva para probar los modelos con instancias generadas por un usuario con una interfaz.
 
-Para la revisión más cómoda del modelo también dejo una carpeta de código monolítico en la que el programa corre en un solo .ipynb, este código no incluye las mejoras aplicadas. Si se quiere ver la limpieza y el entrenamiento por separado se puede hacer también, para el entrenamiento es necesario cargar el excel que se encuentra en la carpeta correspondiente; para las pruebas, se deben cargar todos los documentos adjuntos en la carpeta de pruebas.
+Para la revisión más cómoda del modelo también dejo una carpeta de código monolítico en la que el programa corre en un solo .ipynb, este código no incluye las mejoras aplicadas. Para correr el entrenamiento o las pruebas es necesario cargar los documentos (que no son .ipynb) que se encuentran en la carpeta correspondiente a lo que se quiere hacer. Por ejemplo, para las pruebas, se deben cargar todos los documentos adjuntos en la carpeta de pruebas.
 
 # Website-Phishing-detection-using-machine-learning
 
@@ -234,7 +234,7 @@ Métricas:
 
 ##
 
-Los resultados de los tres modelos se asemejan a los obtenidos en el paper en el sentido que el xgboost fué el mejor de ellos, el random forest fué un cercano segundo y la regresión logística, aunque decente, fué mucho peor para distinguir la clase más complicada (página sospechosa).
+Los resultados de los tres modelos se asemejan a los obtenidos en el paper en el sentido que el xgboost fué el mejor de ellos, el random forest fué un cercano segundo y la regresión logística, aunque decente, fué mucho peor para distinguir la clase más complicada (página sospechosa). Esto cambia drásticamente con el SMOTEEN que le permite a los 3 modelos clasificar mucho mejor la clase sospechosa sacrificando ligeramente la seguridad de los modelos con las otras dos clases. 
 
 ## Referencia 
 [1] M. Bahaghighat, M. Ghasemi y F. Ozen,
