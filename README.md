@@ -238,7 +238,7 @@ Métricas:
 
 Los resultados de los tres modelos se asemejan a los obtenidos en el paper en el sentido que el xgboost y random forest fueron los mejores modelos, ambos tuvieron un desempeño muy cercano y la regresión logística, aunque decente, fué mucho peor para distinguir la clase más complicada (página sospechosa). Esto cambia drásticamente con el SMOTEEN que le permite a los 3 modelos clasificar mucho mejor la clase sospechosa sacrificando ligeramente la seguridad de los modelos con las otras dos clases. 
 
-##Correcciones realizadas:
+## Correcciones realizadas:
 
 - Se describe el dataset, preprocesado y el split.
 - Se muestran los resultados de los modelos propuestos en el README, sus arquitecturas, sus diagnósticos y comparaciones.
