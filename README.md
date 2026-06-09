@@ -41,6 +41,8 @@ Las columnas de features son las siguientes: (Variable-Descripción)
 
 - having_IP_Address - Uso de dirección IP en la URL
 
+El dataset cuenta con 9 columnas de features que tienen valores enteros de -1, 0 y 1. Donde al contrario de la columna de result el 1 es un valor característico de phishing el 0 es sospechoso y el -1 es legítimo. Estos valores no son una representación cuantitativa sino de clasificación por lo que para alimentar las columnas al modelo hice un one hot encoding (con el método get_dummies) para pasarlas a algo cuantitativo. Esto resultó en 25 columnas (no son 27 [3clases x 9columnas] debido a que dos features no tienen los 3 valores sino solo 2 [age_of_domain {-1,1} y having_IP_Address {0,1}]). Con este ajuste lo que se hace es separar cada clase en su propia columna y medir el valor de la presencia de cada clase.
+
 ## Split
 Para este proyecto estoy haciendo dos splits de 80% y 20% cuidando que cada clase esté representada de forma proporciona en cada división de los datos. Esto hace que queden el siguiente número de ejemplos:
 
@@ -73,13 +75,13 @@ En el paper se utilizan 8 escenarios distintos que no son más que diferentes co
 
 La técnica de balanceo que emplean es oversampling con SMOTEENN, (la misma que empleamos en MATCHAI). Esta lo que hace es generar nuevas instancias artificiales de la clase desbalanceada con menos ejemplos (SMOTE) y (ENN [Edited Nearest Neighbors]) elimina observaciones ruidosas o ambiguas. 
 
-Por el momento solo tengo los 3 modelos base (escenario 0). Una de las posibles mejoras que no sean el ajuste de hiperparámetros es aplicar esta técnica de balanceo.
+Para este proyecto hago 3 modelos con el escenario 0, los mismos 3 modelos con ajustes de hiperparámetros y finalmente los tres modelos con los mejores parámetros encontrados y balanceo de clases con SMOTEENN. Los hiperparámetros que utilizo para el proyecto no provienen del paper ya que la cantidad de features, entradas y el formato de los datos es muy distinta por lo que preferí probar con diferentes parámetros y quedarme con los mejores resultados.
 
 ## Modelos:
 
-Para este problema estoy trabajando con 3 modelos distintos, regresión logística, random forest y xgboost. Como mencioné anteriormente se espera que el primer modelo tenga un desempeño moderadamente bueno y lo quiero más que nada como un benchmark. Los otros dos modelos fueron los que mejor desempeño tuvieron alcanzando en el problema resuelto en el paper con un F1 ligeramente arriva de 95 antes de ajustar los hiperparámetros.
+Para este problema estoy trabajando con 3 modelos distintos, regresión logística, random forest y xgboost. Como mencioné anteriormente se espera que el primer modelo tenga un desempeño moderadamente bueno y lo quiero más que nada como un benchmark. Los otros dos modelos fueron los que mejor desempeño tuvieron alcanzando en el problema resuelto en el paper con un F1 ligeramente arriba de 95 antes de ajustar los hiperparámetros.
 
-Después de obtener un baselina apliqué dos mejoras, la primera fué una mejora en los hiperparámetros enfocadas en reducir el overfitting. En esta se consiguió mejorar ligeramente los resultados, pero es algo tan mínimo que podría ser algo espurio. En la segunda mejora apliqué SMOTEEEN para generar más ejemplos de la clase sospechosa la cuál hace que el dataset esté desbalanceado. Esta segunda mejora permite que la clase sospechosa sea más fácil de detectar correctamente. Sin embargo, esto causa que al modelo le cueste un poco más de trabajo detectar las otras dos clases. En el contexto de phishing es probable que sea mejor quedarse con el modelo sin smoteen, o mejor aún evaluar con ambos modelos antes de tomar una decisión, de esta forma puedes evaluar si un sitio sospechoso para el modelo con smote es peligroso, seguro o también sospechoso para el modelo sin smote.
+Después de obtener un baseline apliqué dos mejoras, la primera fué una mejora en los hiperparámetros enfocadas en reducir el overfitting. En esta se consiguió mejorar ligeramente los resultados, pero es algo tan mínimo que podría ser algo espurio. En la segunda mejora apliqué SMOTEEEN para generar más ejemplos de la clase sospechosa la cuál hace que el dataset esté desbalanceado. Esta segunda mejora permite que la clase sospechosa sea más fácil de detectar correctamente. Sin embargo, esto causa que al modelo le cueste un poco más de trabajo detectar las otras dos clases. En el contexto de phishing es probable que sea mejor quedarse con el modelo sin smoteen, o mejor aún evaluar con ambos modelos antes de tomar una decisión, de esta forma puedes evaluar si un sitio sospechoso para el modelo con smote es peligroso, seguro o también sospechoso para el modelo sin smote. Aún así, sí es una mejora considerable para identificar la clase intermedia que es la más difícil de detectar debido a la subjetividad de clasificar algo como sospechoso.
 
 ### Regresión logística
 El modelo analiza las características de entrada y calcula una combinación lineal de ellas. Posteriormente, aplica una función sigmoide para transformar el resultado en una probabilidad. 
@@ -235,6 +237,13 @@ Métricas:
 ##
 
 Los resultados de los tres modelos se asemejan a los obtenidos en el paper en el sentido que el xgboost y random forest fueron los mejores modelos, ambos tuvieron un desempeño muy cercano y la regresión logística, aunque decente, fué mucho peor para distinguir la clase más complicada (página sospechosa). Esto cambia drásticamente con el SMOTEEN que le permite a los 3 modelos clasificar mucho mejor la clase sospechosa sacrificando ligeramente la seguridad de los modelos con las otras dos clases. 
+
+##Correcciones realizadas:
+
+- Se describe el dataset, preprocesado y el split.
+- Se muestran los resultados de los modelos propuestos en el README, sus arquitecturas, sus diagnósticos y comparaciones.
+- La referencia se encuetra al final del README con formato IEEE.
+- Generar reporte completo.
 
 ## Referencia 
 [1] M. Bahaghighat, M. Ghasemi y F. Ozen,
